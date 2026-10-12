@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>패스트웍스 라이브 오피스 · 투자 브리핑 v2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#16181D;--ink-soft:#3A3F49;--meta:#6B7280;--hair:#ECEAE4;--paper:#FBFAF7;--surface:#fff;--surface-2:#F4F2EC;--cobalt:#1A56DB;--cobalt-soft:#E8EEFC;--ember:#E8602C;--ember-soft:#FCEDE6;--moss:#2F7D5B;--moss-soft:#E4F2EA;--bg:#E9E6DF;--shadow:0 1px 2px rgba(20,22,26,.04),0 8px 24px -12px rgba(20,22,26,.18);--shadow-lg:0 2px 6px rgba(20,22,26,.06),0 30px 60px -28px rgba(20,22,26,.28);--r:20px}
+:root[data-theme=dark]{--ink:#F2F1ED;--ink-soft:#C8CBD2;--meta:#9AA0AB;--hair:#2A2D34;--paper:#14161A;--surface:#1C1F25;--surface-2:#23262D;--cobalt:#6B9BFF;--cobalt-soft:#1B2745;--ember-soft:#3A2218;--moss:#5CC08F;--moss-soft:#15291F;--bg:#0B0C0F}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%}
+body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);display:flex;align-items:center;justify-content:center;min-height:100vh;padding:40px 16px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media (max-width:520px),(max-height:700px){body{padding:0;background:var(--paper);display:block}.phone{width:100%!important;height:100%!important;max-height:none!important;border-radius:0!important;box-shadow:none!important}.statusbar{padding-top:max(env(safe-area-inset-top),14px)!important}.navbar{padding-bottom:max(env(safe-area-inset-bottom),6px)!important}}
+.phone{width:402px;max-width:100%;height:858px;max-height:92vh;background:var(--paper);border-radius:46px;position:relative;overflow:hidden;box-shadow:var(--shadow-lg),0 0 0 11px #0c0d10,0 0 0 13px #2a2c31;display:flex;flex-direction:column}
+.statusbar{flex:0 0 auto;padding:14px 26px 4px;display:flex;justify-content:space-between;font-weight:600;font-size:14px}
+.screen{flex:1;overflow-y:auto;scroll-behavior:smooth}.screen::-webkit-scrollbar{width:0}
+.appbar{position:sticky;top:0;z-index:30;backdrop-filter:saturate(140%) blur(14px);background:color-mix(in srgb,var(--paper) 88%,transparent);padding:8px 18px 10px}
+.row{display:flex;align-items:center;gap:12px}
+.wordmark{display:flex;align-items:baseline;gap:7px;flex:1}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--cobalt);box-shadow:0 0 0 3px var(--cobalt-soft)}
+.wordmark b{font-family:Newsreader,serif;font-weight:600;font-size:24px;letter-spacing:-.3px}
+.wordmark em{font:500 10.5px 'Spline Sans Mono',monospace;color:var(--meta);font-style:normal}
+.avatar{width:34px;height:34px;border-radius:50%;border:0;background:linear-gradient(135deg,#1A56DB,#5B8DEF);color:#fff;font-weight:700;font-size:13px;cursor:pointer}
+.topics{display:flex;gap:8px;overflow-x:auto;padding:10px 0 2px}.topics::-webkit-scrollbar{height:0}
+.chip{flex:0 0 auto;border:1px solid var(--hair);background:var(--surface);color:var(--ink-soft);font:500 13.5px Inter;padding:8px 15px;border-radius:999px;cursor:pointer;transition:.18s}
+.chip[aria-selected=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.pad{padding:0 18px}
+.eyebrow{font:400 11px 'Spline Sans Mono',monospace;letter-spacing:1.4px;text-transform:uppercase;color:var(--meta)}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1)}.reveal.in{opacity:1;transform:none}
+.briefing{padding:18px 18px 22px}.briefing .eyebrow{color:var(--cobalt)}
+.briefing h1{font:500 32px/1.1 Newsreader,serif;letter-spacing:-.5px;margin:10px 0 8px}
+.lede{font:16.5px/1.5 Newsreader,serif;color:var(--ink-soft);margin:0 0 16px}
+.pills{display:flex;gap:8px;flex-wrap:wrap}
+.pill{display:inline-flex;gap:6px;background:var(--surface);border:1px solid var(--hair);border-radius:999px;padding:7px 12px;font-size:12.5px;font-weight:500;color:var(--ink-soft);box-shadow:var(--shadow)}
+.pill .v{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.progress{margin-top:16px}.bar{display:block;height:4px;border-radius:99px;background:var(--surface-2);overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--ember),#F2A07B);transition:width 1.4s cubic-bezier(.2,.7,.2,1) .3s}
+.progress small{display:block;margin-top:7px;font:11px 'Spline Sans Mono',monospace;color:var(--meta)}
+.lead{margin:4px 18px 10px;border-radius:var(--r);overflow:hidden;background:var(--surface);box-shadow:var(--shadow)}
+.lead .art{height:200px;position:relative;background:linear-gradient(160deg,#0E1B3C,#1A3A8A 60%,#2A4FB0)}
+.lead .art svg{position:absolute;inset:0;width:100%;height:100%}
+.live{position:absolute;top:14px;left:14px;display:inline-flex;align-items:center;gap:6px;background:var(--ember);color:#fff;font-weight:700;font-size:11px;letter-spacing:.6px;padding:6px 11px;border-radius:999px}
+.blip{width:7px;height:7px;border-radius:50%;background:#fff;animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.35;transform:scale(.7)}}
+.lead .body{padding:16px 18px 18px}
+.kicker{font:10.5px 'Spline Sans Mono',monospace;letter-spacing:1.1px;text-transform:uppercase;color:var(--cobalt)}.lead .kicker{color:var(--ember)}
+.lead h2{font:500 21px/1.28 Newsreader,serif;letter-spacing:-.3px;margin:6px 0 8px}
+.src{font-size:12px;color:var(--meta);line-height:1.5}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;padding:24px 18px 8px}
+.sec-head h3{font:600 20px Newsreader,serif;margin:0}.sec-head span{color:var(--cobalt);font-weight:600;font-size:13px}
+.story{display:flex;gap:14px;padding:15px 0;border-bottom:1px solid var(--hair);align-items:flex-start}.story:last-child{border:0}
+.story .txt{flex:1;min-width:0}
+.story h4{font:500 17px/1.3 Newsreader,serif;margin:5px 0 6px}.story p{margin:0;font-size:13px;line-height:1.5;color:var(--ink-soft)}
+.thumb{flex:0 0 auto;width:56px;height:56px;border-radius:14px;display:grid;place-items:center;color:#fff;font:600 20px Newsreader,serif}
+.t1{background:linear-gradient(135deg,#0E1B3C,#1A56DB)}.t2{background:linear-gradient(135deg,#7A2E10,#E8602C)}.t3{background:linear-gradient(135deg,#1F2937,#6B7280)}.t4{background:linear-gradient(135deg,#7A2E10,#B23A1A)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 18px}
+.card{background:var(--surface);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.card .art{height:84px}
+.a1{background:repeating-linear-gradient(90deg,transparent 0 22px,rgba(255,255,255,.08) 22px 23px),linear-gradient(135deg,#C9B79C,#8C7556)}
+.a2{background:radial-gradient(circle at 30% 40%,rgba(255,255,255,.35),transparent 40%),linear-gradient(135deg,#9FB4C7,#4F6B85)}
+.card .body{padding:12px 13px 14px}.card h5{font:500 15px/1.3 Newsreader,serif;margin:5px 0 5px}.card p{margin:0;font-size:12px;line-height:1.45;color:var(--ink-soft)}
+.card.warn .kicker{color:var(--ember)}
+/* fact check */
+.fc{border:1px solid var(--hair);border-radius:16px;background:var(--surface);box-shadow:var(--shadow);margin:0 18px 10px;overflow:hidden}
+.fc summary{list-style:none;cursor:pointer;padding:14px 16px;display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:start}
+.fc summary::-webkit-details-marker{display:none}
+.tag{font:600 10px 'Spline Sans Mono',monospace;letter-spacing:.6px;padding:4px 7px;border-radius:6px;white-space:nowrap;margin-top:2px}
+.tag.x{background:var(--ember-soft);color:var(--ember)}.tag.q{background:var(--surface-2);color:var(--meta)}.tag.o{background:var(--moss-soft);color:var(--moss)}
+.fc .claim{font:500 15px/1.35 Newsreader,serif}
+.fc .claim small{display:block;font:12px Inter;color:var(--meta);margin-top:3px}
+.fc .chev{color:var(--meta);transition:.2s;font-size:12px;margin-top:4px}.fc[open] .chev{transform:rotate(180deg)}
+.fc .ans{padding:0 16px 15px 16px;font-size:13px;line-height:1.55;color:var(--ink-soft);border-top:1px dashed var(--hair);padding-top:12px}
+.fc .ans b{color:var(--ink)}
+/* simulator */
+.panel{margin:0 18px;padding:16px;border:1px solid var(--hair);border-radius:16px;background:var(--surface);box-shadow:var(--shadow)}
+.ctl{margin-bottom:11px}.ctl label{display:flex;justify-content:space-between;font-size:12.5px;color:var(--ink-soft);font-weight:500}.ctl b{color:var(--ink);font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;accent-color:var(--cobalt)}
+.seg{display:flex;background:var(--surface-2);border-radius:10px;padding:3px;margin:2px 0 14px}
+.seg button{flex:1;border:0;background:none;font:600 12px Inter;color:var(--meta);padding:8px 4px;border-radius:8px;cursor:pointer}
+.seg button.on{background:var(--surface);color:var(--ink);box-shadow:var(--shadow)}
+.out{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
+.kpi{background:var(--surface-2);border-radius:12px;padding:10px 12px}.kpi small{display:block;font:10px 'Spline Sans Mono',monospace;color:var(--meta);letter-spacing:.8px}.kpi strong{font:600 21px Newsreader,serif;font-variant-numeric:tabular-nums}
+.kpi.wide{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center}
+.pos{color:var(--moss)}.neg{color:var(--ember)}
+.scn{margin-top:14px}.scn div{display:grid;grid-template-columns:62px 1fr 48px;gap:8px;align-items:center;font-size:12px;color:var(--ink-soft);margin:7px 0}
+.scn .bar{height:8px}.scn i{background:var(--moss)}.scn i.n{background:var(--ember)}
+.note{font-size:11.5px;color:var(--meta);line-height:1.55;margin:12px 0 0}
+/* checklist */
+.chk{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--hair);cursor:pointer;font-size:14px;line-height:1.45}
+.chk input{margin-top:3px;width:18px;height:18px;accent-color:var(--cobalt);flex:0 0 auto}
+.chk small{display:block;color:var(--meta);font-size:12px}
+.verdict{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.verdict div{border-radius:12px;padding:10px;font-size:11.5px;line-height:1.4;background:var(--surface-2);color:var(--ink-soft);border:2px solid transparent;transition:.25s}
+.verdict div.on{border-color:var(--cobalt);background:var(--cobalt-soft)}
+.verdict b{display:block;font:600 14px Newsreader,serif;color:var(--ink);margin-bottom:3px}
+.fine{padding:20px 18px 110px;font-size:11.5px;line-height:1.6;color:var(--meta)}
+.navbar{flex:0 0 auto;display:flex;justify-content:space-around;padding:8px 4px 10px;border-top:1px solid var(--hair);background:var(--surface)}
+.navbar button{border:0;background:none;font:600 11px Inter;color:var(--meta);padding:8px 7px;border-radius:12px;cursor:pointer}.navbar button.on{color:var(--cobalt);background:var(--cobalt-soft)}
+</style></head><body>
+<div class="phone"><div class="statusbar"><span>9:41</span><span>IC · 2026.10.12</span></div>
+<div class="screen" id="scr">
+<div class="appbar"><div class="row"><div class="wordmark"><span class="dot"></span><b>IC 브리핑</b><em>v2</em></div><button class="avatar" id="th" aria-label="테마 전환">◐</button></div>
+<div class="topics" role="tablist"><button class="chip" role="tab" aria-selected="true" data-t="s0">요약</button><button class="chip" role="tab" data-t="sF">팩트체크</button><button class="chip" role="tab" data-t="s1">상품</button><button class="chip" role="tab" data-t="s2">수익모델</button><button class="chip" role="tab" data-t="s3">리스크</button><button class="chip" role="tab" data-t="s4">판정</button></div></div>
+
+<section id="s0"><div class="briefing reveal"><div class="eyebrow">2026.10.12 · INVESTMENT COMMITTEE · v2</div>
+<h1>‘삼성 옆’이라는 이야기, <em>숫자</em>와 <em>세법</em>으로 다시 보면</h1>
+<p class="lede">현대 테라타워 영통 패스트웍스 라이브 오피스. 홍보형 보고서의 세제 전제를 검증했고, 임대 투자자 기준으로 수익 모델을 다시 짰습니다.</p>
+<div class="pills"><span class="pill">매입가 <span class="v">2.5억</span></span><span class="pill">대출 <span class="v">70%</span></span><span class="pill">금리 <span class="v">3.5%</span></span><span class="pill">손익분기 월세 <span class="v" id="pBE">—</span></span></div>
+<div class="progress"><div class="bar"><i data-w="54"></i></div><small>편집 의견 점수 5.4 / 10 · 조건부 보류 (v1 5.8 → 세제 전제 붕괴 반영)</small></div></div>
+<div class="lead reveal"><div class="art">
+<svg viewBox="0 0 366 200" preserveAspectRatio="xMidYMid slice" aria-label="위치 개념도">
+<g fill="none" stroke="rgba(255,255,255,.10)"><path d="M0 40H366M0 90H366M0 140H366M60 0V200M150 0V200M240 0V200M320 0V200"/></g>
+<rect x="34" y="62" width="128" height="96" rx="8" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.4)"/>
+<text x="98" y="104" text-anchor="middle" fill="#fff" font-family="Inter" font-size="11" font-weight="600">삼성디지털시티</text>
+<text x="98" y="120" text-anchor="middle" fill="rgba(255,255,255,.65)" font-family="Inter" font-size="9">R&amp;D·본사 기능</text>
+<rect x="250" y="84" width="74" height="54" rx="6" fill="#E8602C"/>
+<text x="287" y="108" text-anchor="middle" fill="#fff" font-family="Inter" font-size="10" font-weight="700">FAST</text>
+<text x="287" y="121" text-anchor="middle" fill="#fff" font-family="Inter" font-size="10" font-weight="700">WORKS</text>
+<path d="M162 111H250" stroke="#fff" stroke-dasharray="4 4"/>
+<text x="206" y="103" text-anchor="middle" fill="#fff" font-family="Spline Sans Mono" font-size="10">≈125m*</text>
+<text x="350" y="190" text-anchor="end" fill="rgba(255,255,255,.55)" font-family="Inter" font-size="8.5">* 홍보물 ‘지도 기준’ 수치 · 축척 아님 · 실제 도보 동선 미검증</text>
+</svg><span class="live"><span class="blip"></span>VERDICT</span></div>
+<div class="body"><div class="kicker">HOLD · 조건부 보류</div><h2>임대 투자자에게 지산 감면은 없다. 감면 없이도 실계약 월세가 손익분기를 넘는지 확인하기 전까지 서두를 이유가 없다</h2><div class="src">입지는 강점 · 세제 논리는 실입주자 전용 · 수익은 아직 가정</div></div></div>
+<div class="sec-head"><h3>핵심 4줄</h3><span>Key points</span></div>
+<div class="pad reveal">
+<div class="story"><div class="txt"><div class="kicker">입지 · 강점</div><h4>삼성디지털시티 인접은 실제 수요 근거</h4><p>수원사업장은 연구·본사 기능 중심입니다. 따라서 ‘반도체 메가 클러스터 배후’ 논리는 과장일 수 있습니다.</p></div><div class="thumb t1">01</div></div>
+<div class="story"><div class="txt"><div class="kicker" style="color:var(--ember)">세제 · 정정</div><h4>“취득세 50% 감면, 2025 윈도우”는 성립하지 않음</h4><p>현행 안내는 35%이고, 임대하면 추징 대상입니다. 2025.12.31도 이미 지났습니다. 팩트체크 탭을 보세요.</p></div><div class="thumb t4">02</div></div>
+<div class="story"><div class="txt"><div class="kicker" style="color:var(--ember)">수익 · 가정</div><h4>기본 가정에서 손익분기 월세 약 <span id="beTxt">—</span></h4><p>월세 140만원은 광고 수준의 가정입니다. 판단은 인근 실계약 데이터로 해야 합니다.</p></div><div class="thumb t2">03</div></div>
+<div class="story"><div class="txt"><div class="kicker" style="color:var(--meta)">시장 · 역풍</div><h4>신축 지식산업센터 전반에 공실 부담</h4><p>약 500실이 동시에 임차 경쟁에 나섭니다. 입주 초기 1~2년의 임대료 할인을 가정해야 합니다.</p></div><div class="thumb t3">04</div></div></div></section>
+
+<section id="sF"><div class="sec-head"><h3>팩트체크</h3><span>원본 주장 vs 검증</span></div>
+<p class="pad src" style="margin:0 0 12px">업로드된 홍보형 보고서(V15)의 핵심 주장 7개입니다. 탭하면 근거가 펼쳐집니다.</p>
+<div class="reveal">
+<details class="fc"><summary><span class="tag x">틀림</span><span class="claim">“실입주 기업 취득세 50% 감면”<small>원본 Table 3</small></span><span class="chev">▼</span></summary>
+<div class="ans">현행 구청 안내 기준은 <b>최초 분양 입주자 취득세·재산세 35% 감면</b>(재산세 5년, 중소기업 한정)입니다. 50%는 개정 전 비율로 보입니다. 금천구·강동구 세무 안내 페이지를 참고했습니다.</div></details>
+<details class="fc"><summary><span class="tag x">틀림</span><span class="claim">“임대 운영하며 감면 유지 (Phase II)”<small>원본 전략 로드맵</small></span><span class="chev">▼</span></summary>
+<div class="ans">감면은 <b>본인이 사업시설로 직접 사용</b>할 때만 적용됩니다. 4년 미만 직접 사용 상태에서 <b>임대(일부 임대 포함)·공실·매각</b>하면 추징 사유가 됩니다. 이 브리핑의 모델 투자자(매입 후 월세)는 <b>감면 없이</b> 계산해야 합니다.</div></details>
+<details class="fc"><summary><span class="tag x">시효 경과</span><span class="claim">“2025.12.31 일몰 전 실행하라”<small>‘The clock is ticking’</small></span><span class="chev">▼</span></summary>
+<div class="ans">오늘(2026.10.12) 기준으로 이미 지난 날짜입니다. 2026년 이후 연장 여부와 조건은 <b>이번 검토에서 확인하지 못했습니다</b>. 계약 전에 수원시 세무과에 서면으로 확인해야 합니다. “마감 임박”은 분양 영업의 전형적인 압박 장치이기도 합니다.</div></details>
+<details class="fc"><summary><span class="tag x">요건 강화</span><span class="claim">“제조형 53.66% = 감면 수혜 자산”<small>원본 II장</small></span><span class="chev">▼</span></summary>
+<div class="ans">대법원 2026.4.30 선고 2025두32321 판결의 취지는 이렇습니다. 업종이 제조업으로 분류되는 것만으로는 부족하고, <b>기계·장치 등 제조시설을 실제로 갖춘 공장</b>이어야 감면됩니다. 위탁생산형 기업은 제외될 수 있습니다.</div></details>
+<details class="fc"><summary><span class="tag q">근거 없음</span><span class="claim">“캡레이트 50~100bp 압축”<small>원본 3.3 Exit</small></span><span class="chev">▼</span></summary>
+<div class="ans">비교 거래 사례도 산출 근거도 제시되지 않았습니다. 소형 구분소유 호실의 매수자는 기관이 아니라 개인 사업자·투자자입니다. 기관 캡레이트 논리를 9평 호실에 적용하는 것 자체가 범주 오류에 가깝습니다.</div></details>
+<details class="fc"><summary><span class="tag q">미검증</span><span class="claim">“삼성디지털시티까지 125m”<small>원본 I장</small></span><span class="chev">▼</span></summary>
+<div class="ans">홍보물에 ‘지도 기준’이라고 적힌 직선거리입니다. 실제 체감 거리는 출입 게이트와 보행 동선에 따라 크게 달라집니다. 현장에서 도보 시간을 직접 재 보세요.</div></details>
+<details class="fc"><summary><span class="tag o">사실</span><span class="claim">“업무시설이라 주택 수에 포함되지 않음”<small>마케팅 포인트</small></span><span class="chev">▼</span></summary>
+<div class="ans">맞습니다. 다만 그 이유는 <b>주거용이 아니기 때문</b>입니다. 주거로 사용하거나 전입하는 것을 전제로 한 기대는 위법 소지와 추징 리스크를 함께 가져옵니다.</div></details>
+</div></section>
+
+<section id="s1"><div class="sec-head"><h3>상품 한눈에</h3><span>9평 · 다락</span></div>
+<div class="grid reveal"><div class="card"><div class="art a1"></div><div class="body"><div class="kicker">구성</div><h5>실평수 약 9평 + 다락·발코니</h5><p>소형 1~5인 사업자 대상 업무시설입니다.</p></div></div>
+<div class="card"><div class="art a2"></div><div class="body"><div class="kicker">설비</div><h5>욕실·수납 갖춘 라이브 타입</h5><p>콘셉트는 업무와 체류 편의의 결합입니다.</p></div></div>
+<div class="card"><div class="body"><div class="kicker">규모</div><h5>지산 500실 · 연면적 약 1.6만평</h5><p>제조형 180 · 업무형 100 · 스마트형 220호(홍보 자료 기준)</p></div></div>
+<div class="card"><div class="body"><div class="kicker">인프라</div><h5>주차 357대 · 승강기 45대</h5><p>법정 대비 204% 주차. 호실별 개별 냉난방.</p></div></div>
+<div class="card warn" style="grid-column:1/-1"><div class="body"><div class="kicker">주의 · 홍보물 읽는 법</div><h5>주거 연출 이미지는 법적 용도와 별개</h5><p>홍보 포스터에는 침대 같은 주거 연출이 있고, 일부 이미지는 AI 생성 표기가 있습니다. 법적 용도는 업무시설입니다. 주거 사용과 전입은 별도 검토 대상입니다.</p></div></div></div></section>
+
+<section id="s2"><div class="sec-head"><h3>수익 시뮬레이터</h3><span>직접 조절</span></div>
+<div class="panel reveal">
+<div class="seg" id="mode"><button class="on" data-m="lease">임대 투자자 (감면 없음)</button><button data-m="owner">실입주 사업자 (감면 35%)</button></div>
+<div class="ctl"><label>매입가 <b id="vp"></b></label><input id="p" type="range" min="200" max="300" step="5" value="250"></div>
+<div class="ctl"><label>월세 <b id="vr"></b></label><input id="r" type="range" min="60" max="160" step="5" value="100"></div>
+<div class="ctl"><label>대출 비율(LTV) <b id="vl"></b></label><input id="l" type="range" min="40" max="80" step="5" value="70"></div>
+<div class="ctl"><label>대출금리 <b id="vi"></b></label><input id="i" type="range" min="25" max="60" step="1" value="35"></div>
+<div class="ctl"><label>관리비+예비비 (월) <b id="vm"></b></label><input id="m" type="range" min="10" max="35" step="1" value="20"></div>
+<div class="ctl"><label>연간 공실 개월 <b id="vv"></b></label><input id="v" type="range" min="0" max="4" step="1" value="1"></div>
+<div class="ctl"><label>5년 뒤 시세 변동 <b id="vc"></b></label><input id="c" type="range" min="-20" max="20" step="1" value="0"></div>
+<div class="out">
+<div class="kpi"><small>월 순현금흐름</small><strong id="o1"></strong></div>
+<div class="kpi"><small>실투자 대비 연수익률</small><strong id="o2"></strong></div>
+<div class="kpi"><small>손익분기 월세</small><strong id="o5"></strong></div>
+<div class="kpi"><small>금리 +1%p 시 월</small><strong id="o6"></strong></div>
+<div class="kpi"><small>5년 누적(시세·매도비 포함)</small><strong id="o3"></strong></div>
+<div class="kpi"><small>실투자금</small><strong id="o4"></strong></div>
+<div class="kpi wide"><small id="gapL">손익분기 대비</small><strong id="o7"></strong></div>
+</div>
+<div class="scn" id="scn"></div>
+<p class="note" id="asm"></p></div></section>
+
+<section id="s3"><div class="sec-head"><h3>리스크</h3><span>7 flags</span></div>
+<div class="grid reveal">
+<div class="card warn" style="grid-column:1/-1"><div class="body"><div class="kicker">세제 · 신규</div><h5>‘감면 전제’ 분양가는 임대 투자자에게 그대로 비용</h5><p>분양 측 수익률 표가 감면을 반영했다면 임대 투자자 기준으로 다시 계산해야 합니다. 시뮬레이터의 모드를 바꿔 차이를 확인하세요.</p></div></div>
+<div class="card warn"><div class="body"><div class="kicker">레버리지</div><h5>시세 10%가 자기자본 약 35%</h5><p>2.5억 기준 10% 하락은 2,500만원입니다.</p></div></div>
+<div class="card warn"><div class="body"><div class="kicker">자료 신뢰도</div><h5>기사가 사실상 분양 홍보</h5><p>매체 간 문장이 동일한 보도자료형 기사입니다.</p></div></div>
+<div class="card warn"><div class="body"><div class="kicker">공실·경쟁</div><h5>500실 동시 임차 경쟁</h5><p>신규 입주 시기에 임대료 할인 압력이 생깁니다.</p></div></div>
+<div class="card warn"><div class="body"><div class="kicker">용도</div><h5>주거 대체 기대는 위험</h5><p>오피스텔 대체재가 아닙니다.</p></div></div>
+<div class="card warn"><div class="body"><div class="kicker">출구</div><h5>5~10년 뒤 매수자는?</h5><p>개인 사업자·투자자에게 의존하고 거래량이 얇습니다.</p></div></div>
+<div class="card warn"><div class="body"><div class="kicker">세금</div><h5>VAT·임대소득</h5><p>VAT 환급은 일반과세 사업자일 때만 가능합니다. 수익률은 세전 기준입니다.</p></div></div></div></section>
+
+<section id="s4"><div class="sec-head"><h3>매수 전 체크리스트</h3><span id="cnt">0 / 7</span></div>
+<div class="pad reveal" id="ck"></div>
+<div class="pad reveal"><div class="verdict" id="vd"><div data-v="buy"><b>BUY</b>7개 모두 충족하고, 실계약 월세가 손익분기보다 20% 이상 높을 때</div><div data-v="hold"><b>HOLD</b>4~6개를 충족하거나 가격 협상 여지가 있을 때</div><div data-v="pass"><b>PASS</b>3개 이하, 주거 목적, 또는 감면 전제 수익률에 의존할 때</div></div></div>
+<div class="fine">출처: 업로드된 분석 자료(홍보형 보고서 V15, 챗 분석, 대화록 요약, 홍보 이미지). 세제는 지방세특례제한법 제58조의2에 대한 구청 안내(금천구·강동구)와 대법원 2026.4.30 선고 2025두32321 판결 보도를 참고했습니다. 2026년 이후 감면 연장 여부, 공실률, 실계약 임대료는 원자료로 검증하지 않았습니다. 이 자료는 투자 자문이 아닙니다. 계약 전 세무·법률·대출 전문가에게 확인하세요.</div></section>
+</div>
+<div class="navbar"><button class="on" data-t="s0">요약</button><button data-t="sF">팩트</button><button data-t="s1">상품</button><button data-t="s2">수익</button><button data-t="s3">리스크</button><button data-t="s4">판정</button></div></div>
+<script>
+var $=function(i){return document.getElementById(i)},scr=$('scr'),SEC=['s0','sF','s1','s2','s3','s4'];
+var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');var b=x.target.querySelector('.bar i[data-w]');if(b)b.style.width=b.dataset.w+'%'}})},{root:scr,threshold:.1});
+document.querySelectorAll('.reveal').forEach(function(e){io.observe(e)});
+function go(t){scr.scrollTo({top:$(t).offsetTop-96,behavior:'smooth'});mark(t)}
+function mark(t){document.querySelectorAll('.chip').forEach(function(c){c.setAttribute('aria-selected',c.dataset.t==t)});document.querySelectorAll('.navbar button').forEach(function(c){c.classList.toggle('on',c.dataset.t==t)})}
+document.querySelectorAll('[data-t]').forEach(function(b){b.onclick=function(){go(b.dataset.t)}});
+scr.addEventListener('scroll',function(){var cur='s0';SEC.forEach(function(s){if($(s).offsetTop-140<=scr.scrollTop)cur=s});mark(cur)});
+
+/* ---- 모델 (단위: 만원) ----
+   취득세: 업무시설 4.6% 가정. 실입주 모드는 취득세분 35% 감면(실제 감면은 세목별로 다르니 세무 확인).
+   VAT 환급: 매입가의 6% 가정(건물분 비중에 따라 다름). 이자만 상환. 소득세·건보료·재산세 제외(세전). */
+var MODE='lease';
+function acqTax(p){return p*0.046*(MODE==='owner'?0.65:1)}
+function eq(p,l){return p*(1-l/100)+acqTax(p)-p*0.06}
+function intM(p,l,i){return p*(l/100)*i/1200}
+function net(p,r,l,i,m,v){return r*(12-v)/12-intM(p,l,i)-m}
+function be(p,l,i,m,v){return (intM(p,l,i)+m)*12/(12-v)}
+function f(n){return Math.round(n).toLocaleString('ko-KR')}
+function sg(n){return (n>=0?'+':'')+f(n)}
+function calc(){
+ var p=+$('p').value,r=+$('r').value,l=+$('l').value,i=+$('i').value/10,m=+$('m').value,v=+$('v').value,c=+$('c').value;
+ $('vp').textContent=(p/100).toFixed(2)+'억';$('vr').textContent=r+'만원';$('vl').textContent=l+'%';$('vi').textContent=i.toFixed(1)+'%';$('vm').textContent=m+'만원';$('vv').textContent=v+'개월';$('vc').textContent=(c>0?'+':'')+c+'%';
+ var E=eq(p,l),n=net(p,r,l,i,m,v),y=n*12/E,B=be(p,l,i,m,v),s=net(p,r,l,i+1,m,v);
+ var t=(n*60+p*c/100-p*(1+c/100)*0.01)/E; // 매도비용 1%
+ $('o1').textContent=sg(n)+'만';$('o1').className=n>=0?'pos':'neg';
+ $('o2').textContent=(y*100).toFixed(1)+'%';$('o2').className=y>=0?'pos':'neg';
+ $('o3').textContent=(t>=0?'+':'')+(t*100).toFixed(0)+'%';$('o3').className=t>=0?'pos':'neg';
+ $('o4').textContent=f(E)+'만';
+ $('o5').textContent=f(B)+'만';
+ $('o6').textContent=sg(s)+'만';$('o6').className=s>=0?'pos':'neg';
+ var gap=r-B;$('o7').textContent=(gap>=0?'여유 ':'부족 ')+f(Math.abs(gap))+'만원/월';$('o7').className=gap>=0?'pos':'neg';
+ $('gapL').textContent='현재 월세 '+r+'만 vs 손익분기';
+ $('pBE').textContent=f(be(250,70,3.5,20,1))+'만';$('beTxt').textContent=f(be(250,70,3.5,20,1))+'만원';
+ var h='';[80,100,120,140].forEach(function(x){var yy=net(p,x,l,i,m,v)*12/E*100,w=Math.min(Math.abs(yy)*5,100);h+='<div><span>월세 '+x+'</span><span class="bar"><i class="'+(yy<0?'n':'')+'" style="width:'+w+'%"></i></span><b>'+yy.toFixed(1)+'%</b></div>'});$('scn').innerHTML=h;
+ $('asm').textContent='가정: 이자만 상환, 취득세 4.6%'+(MODE==='owner'?'(35% 감면 반영, 직접 사용 4년 미만이면 추징)':'(감면 없음)')+', VAT 환급 6%(일반과세 사업자 요건), 매도비용 1%. 세전 기준이며 소득세·건보료·재산세는 제외했습니다.';
+}
+['p','r','l','i','m','v','c'].forEach(function(k){$(k).oninput=calc});
+$('mode').onclick=function(e){var b=e.target.closest('button');if(!b)return;MODE=b.dataset.m;[].forEach.call(this.children,function(x){x.classList.toggle('on',x===b)});if(MODE==='owner'){$('r').value=60;$('r').disabled=true}else{$('r').disabled=false;$('r').value=100}calc()};
+calc();
+
+var items=[['실계약 월세가 손익분기 이상','광고가가 아닌 최근 체결 사례 3건 이상'],['매입가 2.5억 이하 · 할인 가능','분양가 협상과 옵션 비용 확인'],['대출금리 4% 이하 · 상환 계획','금리 +1%p 스트레스에서도 감당 가능한지'],['삼성 도보 동선 실측','게이트 기준 실제 도보 시간과 경쟁 호실 수'],['세제 서면 확인','2026년 이후 감면 연장 여부, 임대 시 추징, VAT 요건'],['업무시설 사용 제한 이해','주거 사용·전입 불가 전제'],['감면 없는 수익률로 판단','분양 측 수익표가 감면을 전제했는지 확인']];
+var KEY='fw_ck_v2',saved=[];try{saved=JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){}
+$('ck').innerHTML=items.map(function(x,k){return '<label class="chk"><input type="checkbox" data-k="'+k+'"'+(saved.indexOf(k)>-1?' checked':'')+'><span>'+x[0]+'<small>'+x[1]+'</small></span></label>'}).join('');
+function upd(){var on=[].map.call($('ck').querySelectorAll('input:checked'),function(x){return +x.dataset.k});$('cnt').textContent=on.length+' / '+items.length;try{localStorage.setItem(KEY,JSON.stringify(on))}catch(e){}
+ var v=on.length===items.length?'buy':on.length>=4?'hold':'pass';document.querySelectorAll('#vd div').forEach(function(d){d.classList.toggle('on',d.dataset.v===v)})}
+$('ck').onchange=upd;upd();
+var dk=matchMedia('(prefers-color-scheme:dark)').matches;document.documentElement.dataset.theme=dk?'dark':'light';
+$('th').onclick=function(){dk=!dk;document.documentElement.dataset.theme=dk?'dark':'light'};
+</script></body></html>
